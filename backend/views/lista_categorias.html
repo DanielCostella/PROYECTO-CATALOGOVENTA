@@ -1,0 +1,41 @@
+<?php
+/*@autor DANIEL COSTELLA*/
+
+require_once '../class/autoload.php';
+
+$database = new Database();
+$conn = $database->getConnection();
+
+$query = "SELECT * FROM categorias";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Categorías</title>
+</head>
+<body>
+    <h1>Lista de Categorías</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        <?php foreach ($categorias as $categoria): ?>
+        <tr>
+            <td><?php echo $categoria['id']; ?></td>
+            <td><?php echo $categoria['nombre']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <a href="categorias.php">Agregar Categoría</a>
+    <footer>
+        <p>Daniel Costella</p>
+    </footer>
+</body>
+</html>

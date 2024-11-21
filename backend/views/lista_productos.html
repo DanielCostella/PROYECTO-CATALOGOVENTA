@@ -1,0 +1,45 @@
+<?php
+/*@autor DANIEL COSTELLA*/
+
+require_once '../class/autoload.php';
+
+$database = new Database();
+$conn = $database->getConnection();
+
+$query = "SELECT * FROM productos";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría ID</th>
+        </tr>
+        <?php foreach ($productos as $producto): ?>
+        <tr>
+            <td><?php echo $producto['id']; ?></td>
+            <td><?php echo $producto['nombre']; ?></td>
+            <td><?php echo $producto['precio']; ?></td>
+            <td><?php echo $producto['categoria_id']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <a href="productos.php">Agregar Producto</a>
+    <footer>
+        <p>Daniel Costella</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/estilos.css">
+</head>
+<body>
+    <h1>Alta de productos electronicos</h1>
+
+    <form id="formulario-productos">
+        <label for="Nombre">Nombre del producto:</label>
+        <input type="text" id="nombre" name="Nombre">
+
+        <label for="Descripcion">Descripción</label>
+        <textarea id="Descripcion" name="Descripcion" rows="5"></textarea>
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria">
+           <option value="">Selecccionar</option>
+           <option value="1">Celulares</option>
+           <option value="2">Computadoras</option>
+           <option value="3">Tablets</option>
+           <option value="4">Accesorios</option>
+        </select>
+
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*">
+
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" name="precio">
+
+        <button type="submit">Guardar</button>
+        <button type="button" class="cancel">Cancelar</button>
+
+        
+    </form>
+    <div class="tag"> &copy; Daniel Costella</div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    
+    <script src="../../assets/js/validaciones.js"></script>
+
+
+
+
+</body>
+</html>
